@@ -1,0 +1,11 @@
+<IfModule mod_headers.c>
+    # Izinkan semua origin mengakses file statis
+    Header set Access-Control-Allow-Origin "*"
+    Header set Access-Control-Allow-Methods "GET, POST, OPTIONS"
+    Header set Access-Control-Allow-Headers "Content-Type"
+</IfModule>
+
+# Khusus folder Thumbnail dan Video
+<FilesMatch "\.(jpg|jpeg|png|gif|webp|mp4|mkv|avi|mov|webm)$">
+    Header set Access-Control-Allow-Origin "*"
+</FilesMatch>
