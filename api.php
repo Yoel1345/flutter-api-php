@@ -3,8 +3,8 @@
 ob_start();
 
 // ─── Tampilkan Error (Penting untuk Debugging) ────────────────────────────────
-ini_set('display_errors', 0);
-error_reporting(0);
+ini_set('display_errors', 1); // Ubah jadi 1 untuk debug
+error_reporting(E_ALL);      // Ubah agar semua error muncul
 
 // ─── CORS & Headers ───────────────────────────────────────────────────────────
 header("Access-Control-Allow-Origin: *");
