@@ -37,12 +37,8 @@ if ($conn->connect_error) {
 }
 $conn->set_charset("utf8mb4");
 
-// ─── Helper untuk URL Otomatis ────────────────────────────────────────────────
-$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
-$baseHost = $_SERVER['HTTP_HOST'];
-$baseDir  = str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME']));
-if ($baseDir == '/') $baseDir = '';
-$baseUrl  = $protocol . '://' . $baseHost . $baseDir;
+// Paksa menggunakan https karena Railway menyediakannya secara otomatis
+$baseUrl = "https://" . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']);
 
 $action = $_GET['action'] ?? '';
 
